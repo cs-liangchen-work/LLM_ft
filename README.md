@@ -98,6 +98,7 @@ start trainning....
 
 https://stackoverflow.com/questions/76768226/target-modules-for-applying-peft-lora-on-different-models
 
+```
 DataParallel(
   (module): Bert(
     (model): BertModel(
@@ -146,3 +147,4 @@ DataParallel(
     (linear_2): Linear(in_features=768, out_features=1, bias=True)
   )
 )
+```
