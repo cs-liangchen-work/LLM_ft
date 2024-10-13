@@ -171,6 +171,20 @@ for _ in range(0,2):
     model = get_peft_model(model, config)
     model.print_trainable_parameters()
 
+
+
+===================================BUG REPORT===================================
+Welcome to bitsandbytes. For bug reports, please run
+
+python -m bitsandbytes
+
+ and submit this information together with your error trace to: https://github.com/TimDettmers/bitsandbytes/issues
+================================================================================
+bin /root/paddlejob/workspace/env_run/log/test_result/py38/lib/python3.8/site-packages/bitsandbytes/libbitsandbytes_cuda110.so
+CUDA SETUP: CUDA runtime path found: /usr/local/cuda/lib64/libcudart.so
+CUDA SETUP: Highest compute capability among GPUs detected: 8.0
+CUDA SETUP: Detected CUDA version 110
+CUDA SETUP: Loading binary /root/paddlejob/workspace/env_run/log/test_result/py38/lib/python3.8/site-packages/bitsandbytes/libbitsandbytes_cuda110.so...
 trainable params: 589,824 || all params: 110,073,602 || trainable%: 0.5358
 ```
 
