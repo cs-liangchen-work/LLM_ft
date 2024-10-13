@@ -150,3 +150,28 @@ DataParallel(
   )
 )
 ```
+
+```
+from peft import LoraConfig, get_peft_model
+config = LoraConfig(
+    r=16,
+    lora_alpha=16,
+    target_modules=["query", "value"],
+    lora_dropout=0.1,
+    bias="none",
+)
+
+
+for _ in range(0,2):
+    print('-----------------------------------------------------')
+    loss_func = torch.nn.CrossEntropyLoss()
+    model = Bert()
+    model = torch.nn.DataParallel(model, device_ids=[0])
+    model = model.cuda()
+    model = get_peft_model(model, config)
+    model.print_trainable_parameters()
+
+trainable params: 589,824 || all params: 110,073,602 || trainable%: 0.5358
+```
+
+
