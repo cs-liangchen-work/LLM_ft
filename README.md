@@ -98,6 +98,8 @@ start trainning....
 
 https://stackoverflow.com/questions/76768226/target-modules-for-applying-peft-lora-on-different-models
 
+figure中也有：modules_to_save
+
 ```
 DataParallel(
   (module): Bert(
