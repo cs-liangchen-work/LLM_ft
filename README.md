@@ -189,3 +189,21 @@ trainable params: 589,824 || all params: 110,073,602 || trainable%: 0.5358
 ```
 
 
+问题：
+===================================BUG REPORT===================================
+Welcome to bitsandbytes. For bug reports, please submit your error trace to: https://github.com/TimDettmers/bitsandbytes/issues
+================================================================================
+CUDA_SETUP: 。。。
+
+https://powervision.feishu.cn/wiki/DUMbwl0MmiNeA6ksElqcWIzxnqg
+https://stackoverflow.com/questions/75918140/getting-runtimeerror-expected-scalar-type-half-but-found-float-in-aws-p3-instan
+
+
+
+
+##### 参考：
+
+https://github.com/yuanzhoulvpi2017/zero_nlp/tree/main/simple_thu_chatglm6b
+
+
+
