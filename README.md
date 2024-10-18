@@ -196,8 +196,10 @@ Welcome to bitsandbytes. For bug reports, please submit your error trace to: htt
 ================================================================================
 CUDA_SETUP: 。。。
 ```
-解决参开
+解决参考：
+
 https://powervision.feishu.cn/wiki/DUMbwl0MmiNeA6ksElqcWIzxnqg
+
 https://stackoverflow.com/questions/75918140/getting-runtimeerror-expected-scalar-type-half-but-found-float-in-aws-p3-instan
 
 
