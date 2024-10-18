@@ -205,7 +205,10 @@ https://stackoverflow.com/questions/75918140/getting-runtimeerror-expected-scala
 【未解决，但是不影响】
 
 ## 1.4 结果对比
-![Alt Text](figure/base_memory.png)
+
+base结果
+
+![](figure/base_memory.png)
 
 
 
