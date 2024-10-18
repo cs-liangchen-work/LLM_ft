@@ -1,8 +1,8 @@
 # Lora
 这是lora训练模型的参考代码
 
-# Lora + EAE
-## EAE Base
+# 1. Lora + EAE
+## 1.1 EAE Base
 EAE基于传统深度模型训练信息，3次：
 - 1次
 start trainning....
@@ -93,7 +93,7 @@ start trainning....
 0.4789 0.3701 0.4175
 6 0.4175311203319502
 
-## EAE model
+## 1.2 EAE model
 如何设置 Target modules for applying PEFT / LoRA on different models
 
 https://stackoverflow.com/questions/76768226/target-modules-for-applying-peft-lora-on-different-models
