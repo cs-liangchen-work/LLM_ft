@@ -210,6 +210,7 @@ base结果
 
 ![](figure/base_memory.png)
 
+
 | 列名1 | 列名2 | 列名3 |  
 |-------|-------|-------|  
 | 数据1 | 数据2 | 数据3 |  
@@ -217,6 +218,34 @@ base结果
 | 数据7 | 数据8 | 数据9 |
 
 
+模型保存：
+
+```
+torch.save(model.module.state_dict(), './model/static_dict' + str(epoch) + '_' + str(f1) + '.pkl')
+```
+
+lora代码：
+
+```
+from peft import LoraConfig, get_peft_model
+config = LoraConfig(
+    r=16,
+    lora_alpha=16,
+    target_modules=["query", "value"],
+    lora_dropout=0.1,
+    bias="none",
+)
+
+
+for _ in range(0,2):
+    print('-----------------------------------------------------')
+    loss_func = torch.nn.CrossEntropyLoss()
+    model = Bert()
+    model = torch.nn.DataParallel(model, device_ids=[0])
+    model = model.cuda()
+    model = get_peft_model(model, config)
+    model.print_trainable_parameters()
+```
 
 
 # 2. chatglm_v2 + EAE
