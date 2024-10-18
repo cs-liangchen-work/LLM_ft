@@ -207,7 +207,7 @@ https://stackoverflow.com/questions/75918140/getting-runtimeerror-expected-scala
 
 # 2. chatglm_v2 + EAE
 
-https://github.com/yuanzhoulvpi2017/zero_nlp/tree/main/simple_thu_chatglm6b
+[https://github.com/yuanzhoulvpi2017/zero_nlp/tree/main/simple_thu_chatglm6b](https://github.com/yuanzhoulvpi2017/zero_nlp/tree/main/chatglm_v2_6b_lora)
 
 https://github.com/THUDM/ChatGLM2-6B
 
