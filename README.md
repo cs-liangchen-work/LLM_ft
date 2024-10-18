@@ -93,7 +93,7 @@ start trainning....
 0.4789 0.3701 0.4175
 6 0.4175311203319502
 
-## 1.2 EAE model
+## 1.2 EAE model with lora
 如何设置 Target modules for applying PEFT / LoRA on different models
 
 https://stackoverflow.com/questions/76768226/target-modules-for-applying-peft-lora-on-different-models
