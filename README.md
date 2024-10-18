@@ -189,7 +189,7 @@ trainable params: 589,824 || all params: 110,073,602 || trainable%: 0.5358
 ```
 
 
-### 1.3 问题 BUG REPORT：
+## 1.3 问题 BUG REPORT：
 ```
 ===================================BUG REPORT===================================
 Welcome to bitsandbytes. For bug reports, please submit your error trace to: https://github.com/TimDettmers/bitsandbytes/issues
@@ -205,9 +205,9 @@ https://stackoverflow.com/questions/75918140/getting-runtimeerror-expected-scala
 【未解决】
 
 
-# 参考：
+# 2. chatglm_v2 + EAE
 
 https://github.com/yuanzhoulvpi2017/zero_nlp/tree/main/simple_thu_chatglm6b
 
-
+https://github.com/THUDM/ChatGLM2-6B
 
