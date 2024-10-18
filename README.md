@@ -202,7 +202,11 @@ https://powervision.feishu.cn/wiki/DUMbwl0MmiNeA6ksElqcWIzxnqg
 
 https://stackoverflow.com/questions/75918140/getting-runtimeerror-expected-scalar-type-half-but-found-float-in-aws-p3-instan
 
-【未解决】
+【未解决，但是不影响】
+
+## 1.4 结果对比
+![Alt Text](figure/base_memory.png)
+
 
 
 # 2. chatglm_v2 + EAE
