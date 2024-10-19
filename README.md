@@ -528,3 +528,9 @@ def preprocess_function_train()
 ```
 
 
+## 2.3 模型训练
+
+注意Transformer的版本：
+
+https://github.com/THUDM/ChatGLM2-6B/blob/main/requirements.txt
+
