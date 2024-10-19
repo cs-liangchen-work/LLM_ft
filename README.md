@@ -536,3 +536,493 @@ https://github.com/THUDM/ChatGLM2-6B/blob/main/requirements.txt
 
 ![](figure/chatglm_v2_lora_memset.png)
 
+结果：
+
+```
+{'loss': 3.2869, 'learning_rate': 5.2e-06, 'epoch': 0.31}                                                                                                                        
+{'loss': 3.3268, 'learning_rate': 5.133333333333334e-06, 'epoch': 0.31}                                                                                                          
+{'loss': 3.2875, 'learning_rate': 5.0666666666666676e-06, 'epoch': 0.31}                                                                                                         
+{'loss': 3.2996, 'learning_rate': 5e-06, 'epoch': 0.31}                                                                                                                          
+{'loss': 3.3241, 'learning_rate': 4.933333333333334e-06, 'epoch': 0.32}                                                                                                          
+{'loss': 3.363, 'learning_rate': 4.866666666666667e-06, 'epoch': 0.32}                                                                                                           
+{'loss': 3.3074, 'learning_rate': 4.800000000000001e-06, 'epoch': 0.32}                                                                                                          
+{'loss': 3.3038, 'learning_rate': 4.7333333333333335e-06, 'epoch': 0.32}                                                                                                         
+{'loss': 3.3253, 'learning_rate': 4.666666666666667e-06, 'epoch': 0.32}                                                                                                          
+ 77%|██████████████████████████████████████████████████████████████████████████████████████████████████████▋                               | 2300/3000 [1:41:19<30:36,  2.62s/it][INFO|configuration_utils.py:667] 2024-10-19 20:09:37,696 >> loading configuration file /root/XXXjob/workspace/env_run/chatglm/10.25.73.162:8011/data1/models/chatglm2-6b/config.json
+[INFO|configuration_utils.py:725] 2024-10-19 20:09:37,697 >> Model config ChatGLMConfig {
+  "_name_or_path": "THUDM/chatglm2-6b",
+  "add_bias_linear": false,
+  "add_qkv_bias": true,
+  "apply_query_key_layer_scaling": true,
+  "apply_residual_connection_post_layernorm": false,
+  "architectures": [
+    "ChatGLMModel"
+  ],
+  "attention_dropout": 0.0,
+  "attention_softmax_in_fp32": true,
+  "auto_map": {
+    "AutoConfig": "configuration_chatglm.ChatGLMConfig",
+    "AutoModel": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForCausalLM": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForSeq2SeqLM": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForSequenceClassification": "modeling_chatglm.ChatGLMForSequenceClassification"
+  },
+  "bias_dropout_fusion": true,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "ffn_hidden_size": 13696,
+  "fp32_residual_connection": false,
+  "hidden_dropout": 0.0,
+  "hidden_size": 4096,
+  "kv_channels": 128,
+  "layernorm_epsilon": 1e-05,
+  "model_type": "chatglm",
+  "multi_query_attention": true,
+  "multi_query_group_num": 2,
+  "num_attention_heads": 32,
+  "num_layers": 28,
+  "original_rope": true,
+  "pad_token_id": 0,
+  "padded_vocab_size": 65024,
+  "post_layer_norm": true,
+  "pre_seq_len": null,
+  "prefix_projection": false,
+  "quantization_bit": 0,
+  "rmsnorm": true,
+  "seq_length": 32768,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.30.2",
+  "use_cache": true,
+  "vocab_size": 65024
+}
+
+{'loss': 3.2948, 'learning_rate': 4.600000000000001e-06, 'epoch': 0.32}                                                                                                          
+{'loss': 3.3084, 'learning_rate': 4.533333333333334e-06, 'epoch': 0.32}                                                                                                          
+{'loss': 3.2577, 'learning_rate': 4.4666666666666665e-06, 'epoch': 0.33}                                                                                                         
+{'loss': 3.2913, 'learning_rate': 4.4e-06, 'epoch': 0.33}                                                                                                                        
+{'loss': 3.3144, 'learning_rate': 4.333333333333334e-06, 'epoch': 0.33}                                                                                                          
+{'loss': 3.2902, 'learning_rate': 4.266666666666668e-06, 'epoch': 0.33}                                                                                                          
+{'loss': 3.3259, 'learning_rate': 4.2000000000000004e-06, 'epoch': 0.33}                                                                                                         
+{'loss': 3.3146, 'learning_rate': 4.133333333333333e-06, 'epoch': 0.33}                                                                                                          
+{'loss': 3.3481, 'learning_rate': 4.066666666666667e-06, 'epoch': 0.33}                                                                                                          
+{'loss': 3.3116, 'learning_rate': 4.000000000000001e-06, 'epoch': 0.34}                                                                                                          
+ 80%|███████████████████████████████████████████████████████████████████████████████████████████████████████████▏                          | 2400/3000 [1:45:40<26:12,  2.62s/it][INFO|configuration_utils.py:667] 2024-10-19 20:13:59,570 >> loading configuration file /root/XXXjob/workspace/env_run/chatglm/10.25.73.162:8011/data1/models/chatglm2-6b/config.json
+[INFO|configuration_utils.py:725] 2024-10-19 20:13:59,571 >> Model config ChatGLMConfig {
+  "_name_or_path": "THUDM/chatglm2-6b",
+  "add_bias_linear": false,
+  "add_qkv_bias": true,
+  "apply_query_key_layer_scaling": true,
+  "apply_residual_connection_post_layernorm": false,
+  "architectures": [
+    "ChatGLMModel"
+  ],
+  "attention_dropout": 0.0,
+  "attention_softmax_in_fp32": true,
+  "auto_map": {
+    "AutoConfig": "configuration_chatglm.ChatGLMConfig",
+    "AutoModel": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForCausalLM": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForSeq2SeqLM": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForSequenceClassification": "modeling_chatglm.ChatGLMForSequenceClassification"
+  },
+  "bias_dropout_fusion": true,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "ffn_hidden_size": 13696,
+  "fp32_residual_connection": false,
+  "hidden_dropout": 0.0,
+  "hidden_size": 4096,
+  "kv_channels": 128,
+  "layernorm_epsilon": 1e-05,
+  "model_type": "chatglm",
+  "multi_query_attention": true,
+  "multi_query_group_num": 2,
+  "num_attention_heads": 32,
+  "num_layers": 28,
+  "original_rope": true,
+  "pad_token_id": 0,
+  "padded_vocab_size": 65024,
+  "post_layer_norm": true,
+  "pre_seq_len": null,
+  "prefix_projection": false,
+  "quantization_bit": 0,
+  "rmsnorm": true,
+  "seq_length": 32768,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.30.2",
+  "use_cache": true,
+  "vocab_size": 65024
+}
+
+{'loss': 3.3806, 'learning_rate': 3.9333333333333335e-06, 'epoch': 0.34}                                                                                                         
+{'loss': 3.3314, 'learning_rate': 3.866666666666667e-06, 'epoch': 0.34}                                                                                                          
+{'loss': 3.2693, 'learning_rate': 3.8000000000000005e-06, 'epoch': 0.34}                                                                                                         
+{'loss': 3.3266, 'learning_rate': 3.7333333333333337e-06, 'epoch': 0.34}                                                                                                         
+{'loss': 3.3175, 'learning_rate': 3.6666666666666666e-06, 'epoch': 0.34}                                                                                                         
+{'loss': 3.3268, 'learning_rate': 3.6000000000000003e-06, 'epoch': 0.34}                                                                                                         
+{'loss': 3.3069, 'learning_rate': 3.5333333333333335e-06, 'epoch': 0.34}                                                                                                         
+{'loss': 3.2724, 'learning_rate': 3.4666666666666672e-06, 'epoch': 0.35}                                                                                                         
+{'loss': 3.3208, 'learning_rate': 3.4000000000000005e-06, 'epoch': 0.35}                                                                                                         
+{'loss': 3.3014, 'learning_rate': 3.3333333333333333e-06, 'epoch': 0.35}                                                                                                         
+ 83%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                      | 2500/3000 [1:50:04<21:52,  2.62s/it][INFO|configuration_utils.py:667] 2024-10-19 20:18:23,162 >> loading configuration file /root/XXXjob/workspace/env_run/chatglm/10.25.73.162:8011/data1/models/chatglm2-6b/config.json
+[INFO|configuration_utils.py:725] 2024-10-19 20:18:23,163 >> Model config ChatGLMConfig {
+  "_name_or_path": "THUDM/chatglm2-6b",
+  "add_bias_linear": false,
+  "add_qkv_bias": true,
+  "apply_query_key_layer_scaling": true,
+  "apply_residual_connection_post_layernorm": false,
+  "architectures": [
+    "ChatGLMModel"
+  ],
+  "attention_dropout": 0.0,
+  "attention_softmax_in_fp32": true,
+  "auto_map": {
+    "AutoConfig": "configuration_chatglm.ChatGLMConfig",
+    "AutoModel": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForCausalLM": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForSeq2SeqLM": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForSequenceClassification": "modeling_chatglm.ChatGLMForSequenceClassification"
+  },
+  "bias_dropout_fusion": true,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "ffn_hidden_size": 13696,
+  "fp32_residual_connection": false,
+  "hidden_dropout": 0.0,
+  "hidden_size": 4096,
+  "kv_channels": 128,
+  "layernorm_epsilon": 1e-05,
+  "model_type": "chatglm",
+  "multi_query_attention": true,
+  "multi_query_group_num": 2,
+  "num_attention_heads": 32,
+  "num_layers": 28,
+  "original_rope": true,
+  "pad_token_id": 0,
+  "padded_vocab_size": 65024,
+  "post_layer_norm": true,
+  "pre_seq_len": null,
+  "prefix_projection": false,
+  "quantization_bit": 0,
+  "rmsnorm": true,
+  "seq_length": 32768,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.30.2",
+  "use_cache": true,
+  "vocab_size": 65024
+}
+
+{'loss': 3.3561, 'learning_rate': 3.266666666666667e-06, 'epoch': 0.35}                                                                                                          
+{'loss': 3.304, 'learning_rate': 3.2000000000000003e-06, 'epoch': 0.35}                                                                                                          
+{'loss': 3.3103, 'learning_rate': 3.133333333333334e-06, 'epoch': 0.35}                                                                                                          
+{'loss': 3.2894, 'learning_rate': 3.066666666666667e-06, 'epoch': 0.35}                                                                                                          
+{'loss': 3.3164, 'learning_rate': 3e-06, 'epoch': 0.36}                                                                                                                          
+{'loss': 3.314, 'learning_rate': 2.9333333333333338e-06, 'epoch': 0.36}                                                                                                          
+{'loss': 3.3532, 'learning_rate': 2.866666666666667e-06, 'epoch': 0.36}                                                                                                          
+{'loss': 3.2554, 'learning_rate': 2.8000000000000003e-06, 'epoch': 0.36}                                                                                                         
+{'loss': 3.2799, 'learning_rate': 2.7333333333333336e-06, 'epoch': 0.36}                                                                                                         
+{'loss': 3.295, 'learning_rate': 2.666666666666667e-06, 'epoch': 0.36}                                                                                                           
+ 87%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏                 | 2600/3000 [1:54:30<17:20,  2.60s/it][INFO|configuration_utils.py:667] 2024-10-19 20:22:49,475 >> loading configuration file /root/XXXjob/workspace/env_run/chatglm/10.25.73.162:8011/data1/models/chatglm2-6b/config.json
+[INFO|configuration_utils.py:725] 2024-10-19 20:22:49,476 >> Model config ChatGLMConfig {
+  "_name_or_path": "THUDM/chatglm2-6b",
+  "add_bias_linear": false,
+  "add_qkv_bias": true,
+  "apply_query_key_layer_scaling": true,
+  "apply_residual_connection_post_layernorm": false,
+  "architectures": [
+    "ChatGLMModel"
+  ],
+  "attention_dropout": 0.0,
+  "attention_softmax_in_fp32": true,
+  "auto_map": {
+    "AutoConfig": "configuration_chatglm.ChatGLMConfig",
+    "AutoModel": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForCausalLM": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForSeq2SeqLM": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForSequenceClassification": "modeling_chatglm.ChatGLMForSequenceClassification"
+  },
+  "bias_dropout_fusion": true,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "ffn_hidden_size": 13696,
+  "fp32_residual_connection": false,
+  "hidden_dropout": 0.0,
+  "hidden_size": 4096,
+  "kv_channels": 128,
+  "layernorm_epsilon": 1e-05,
+  "model_type": "chatglm",
+  "multi_query_attention": true,
+  "multi_query_group_num": 2,
+  "num_attention_heads": 32,
+  "num_layers": 28,
+  "original_rope": true,
+  "pad_token_id": 0,
+  "padded_vocab_size": 65024,
+  "post_layer_norm": true,
+  "pre_seq_len": null,
+  "prefix_projection": false,
+  "quantization_bit": 0,
+  "rmsnorm": true,
+  "seq_length": 32768,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.30.2",
+  "use_cache": true,
+  "vocab_size": 65024
+}
+
+{'loss': 3.2595, 'learning_rate': 2.6e-06, 'epoch': 0.36}                                                                                                                        
+{'loss': 3.2993, 'learning_rate': 2.5333333333333338e-06, 'epoch': 0.37}                                                                                                         
+{'loss': 3.3507, 'learning_rate': 2.466666666666667e-06, 'epoch': 0.37}                                                                                                          
+{'loss': 3.3044, 'learning_rate': 2.4000000000000003e-06, 'epoch': 0.37}                                                                                                         
+{'loss': 3.3155, 'learning_rate': 2.3333333333333336e-06, 'epoch': 0.37}                                                                                                         
+{'loss': 3.2929, 'learning_rate': 2.266666666666667e-06, 'epoch': 0.37}                                                                                                          
+{'loss': 3.2454, 'learning_rate': 2.2e-06, 'epoch': 0.37}                                                                                                                        
+{'loss': 3.318, 'learning_rate': 2.133333333333334e-06, 'epoch': 0.37}                                                                                                           
+{'loss': 3.3099, 'learning_rate': 2.0666666666666666e-06, 'epoch': 0.38}                                                                                                         
+{'loss': 3.3046, 'learning_rate': 2.0000000000000003e-06, 'epoch': 0.38}                                                                                                         
+ 90%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌             | 2700/3000 [1:58:53<13:02,  2.61s/it][INFO|configuration_utils.py:667] 2024-10-19 20:27:12,402 >> loading configuration file /root/XXXjob/workspace/env_run/chatglm/10.25.73.162:8011/data1/models/chatglm2-6b/config.json
+[INFO|configuration_utils.py:725] 2024-10-19 20:27:12,403 >> Model config ChatGLMConfig {
+  "_name_or_path": "THUDM/chatglm2-6b",
+  "add_bias_linear": false,
+  "add_qkv_bias": true,
+  "apply_query_key_layer_scaling": true,
+  "apply_residual_connection_post_layernorm": false,
+  "architectures": [
+    "ChatGLMModel"
+  ],
+  "attention_dropout": 0.0,
+  "attention_softmax_in_fp32": true,
+  "auto_map": {
+    "AutoConfig": "configuration_chatglm.ChatGLMConfig",
+    "AutoModel": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForCausalLM": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForSeq2SeqLM": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForSequenceClassification": "modeling_chatglm.ChatGLMForSequenceClassification"
+  },
+  "bias_dropout_fusion": true,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "ffn_hidden_size": 13696,
+  "fp32_residual_connection": false,
+  "hidden_dropout": 0.0,
+  "hidden_size": 4096,
+  "kv_channels": 128,
+  "layernorm_epsilon": 1e-05,
+  "model_type": "chatglm",
+  "multi_query_attention": true,
+  "multi_query_group_num": 2,
+  "num_attention_heads": 32,
+  "num_layers": 28,
+  "original_rope": true,
+  "pad_token_id": 0,
+  "padded_vocab_size": 65024,
+  "post_layer_norm": true,
+  "pre_seq_len": null,
+  "prefix_projection": false,
+  "quantization_bit": 0,
+  "rmsnorm": true,
+  "seq_length": 32768,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.30.2",
+  "use_cache": true,
+  "vocab_size": 65024
+}
+
+{'loss': 3.293, 'learning_rate': 1.9333333333333336e-06, 'epoch': 0.38}                                                                                                          
+{'loss': 3.3135, 'learning_rate': 1.8666666666666669e-06, 'epoch': 0.38}                                                                                                         
+{'loss': 3.4051, 'learning_rate': 1.8000000000000001e-06, 'epoch': 0.38}                                                                                                         
+{'loss': 3.3054, 'learning_rate': 1.7333333333333336e-06, 'epoch': 0.38}                                                                                                         
+{'loss': 3.2555, 'learning_rate': 1.6666666666666667e-06, 'epoch': 0.38}                                                                                                         
+{'loss': 3.3048, 'learning_rate': 1.6000000000000001e-06, 'epoch': 0.39}                                                                                                         
+{'loss': 3.3424, 'learning_rate': 1.5333333333333334e-06, 'epoch': 0.39}                                                                                                         
+{'loss': 3.3628, 'learning_rate': 1.4666666666666669e-06, 'epoch': 0.39}                                                                                                         
+{'loss': 3.3248, 'learning_rate': 1.4000000000000001e-06, 'epoch': 0.39}                                                                                                         
+{'loss': 3.325, 'learning_rate': 1.3333333333333334e-06, 'epoch': 0.39}                                                                                                          
+ 93%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████         | 2800/3000 [2:03:31<08:50,  2.65s/it][INFO|configuration_utils.py:667] 2024-10-19 20:31:50,177 >> loading configuration file /root/XXXjob/workspace/env_run/chatglm/10.25.73.162:8011/data1/models/chatglm2-6b/config.json
+[INFO|configuration_utils.py:725] 2024-10-19 20:31:50,178 >> Model config ChatGLMConfig {
+  "_name_or_path": "THUDM/chatglm2-6b",
+  "add_bias_linear": false,
+  "add_qkv_bias": true,
+  "apply_query_key_layer_scaling": true,
+  "apply_residual_connection_post_layernorm": false,
+  "architectures": [
+    "ChatGLMModel"
+  ],
+  "attention_dropout": 0.0,
+  "attention_softmax_in_fp32": true,
+  "auto_map": {
+    "AutoConfig": "configuration_chatglm.ChatGLMConfig",
+    "AutoModel": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForCausalLM": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForSeq2SeqLM": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForSequenceClassification": "modeling_chatglm.ChatGLMForSequenceClassification"
+  },
+  "bias_dropout_fusion": true,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "ffn_hidden_size": 13696,
+  "fp32_residual_connection": false,
+  "hidden_dropout": 0.0,
+  "hidden_size": 4096,
+  "kv_channels": 128,
+  "layernorm_epsilon": 1e-05,
+  "model_type": "chatglm",
+  "multi_query_attention": true,
+  "multi_query_group_num": 2,
+  "num_attention_heads": 32,
+  "num_layers": 28,
+  "original_rope": true,
+  "pad_token_id": 0,
+  "padded_vocab_size": 65024,
+  "post_layer_norm": true,
+  "pre_seq_len": null,
+  "prefix_projection": false,
+  "quantization_bit": 0,
+  "rmsnorm": true,
+  "seq_length": 32768,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.30.2",
+  "use_cache": true,
+  "vocab_size": 65024
+}
+
+{'loss': 3.3051, 'learning_rate': 1.2666666666666669e-06, 'epoch': 0.39}                                                                                                         
+{'loss': 3.2786, 'learning_rate': 1.2000000000000002e-06, 'epoch': 0.39}                                                                                                         
+{'loss': 3.2725, 'learning_rate': 1.1333333333333334e-06, 'epoch': 0.4}                                                                                                          
+{'loss': 3.2826, 'learning_rate': 1.066666666666667e-06, 'epoch': 0.4}                                                                                                           
+{'loss': 3.3372, 'learning_rate': 1.0000000000000002e-06, 'epoch': 0.4}                                                                                                          
+{'loss': 3.2944, 'learning_rate': 9.333333333333334e-07, 'epoch': 0.4}                                                                                                           
+{'loss': 3.2735, 'learning_rate': 8.666666666666668e-07, 'epoch': 0.4}                                                                                                           
+{'loss': 3.2696, 'learning_rate': 8.000000000000001e-07, 'epoch': 0.4}                                                                                                           
+{'loss': 3.2294, 'learning_rate': 7.333333333333334e-07, 'epoch': 0.4}                                                                                                           
+{'loss': 3.3371, 'learning_rate': 6.666666666666667e-07, 'epoch': 0.4}                                                                                                           
+ 97%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌    | 2900/3000 [2:07:54<04:22,  2.63s/it][INFO|configuration_utils.py:667] 2024-10-19 20:36:12,967 >> loading configuration file /root/XXXjob/workspace/env_run/chatglm/10.25.73.162:8011/data1/models/chatglm2-6b/config.json
+[INFO|configuration_utils.py:725] 2024-10-19 20:36:12,967 >> Model config ChatGLMConfig {
+  "_name_or_path": "THUDM/chatglm2-6b",
+  "add_bias_linear": false,
+  "add_qkv_bias": true,
+  "apply_query_key_layer_scaling": true,
+  "apply_residual_connection_post_layernorm": false,
+  "architectures": [
+    "ChatGLMModel"
+  ],
+  "attention_dropout": 0.0,
+  "attention_softmax_in_fp32": true,
+  "auto_map": {
+    "AutoConfig": "configuration_chatglm.ChatGLMConfig",
+    "AutoModel": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForCausalLM": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForSeq2SeqLM": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForSequenceClassification": "modeling_chatglm.ChatGLMForSequenceClassification"
+  },
+  "bias_dropout_fusion": true,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "ffn_hidden_size": 13696,
+  "fp32_residual_connection": false,
+  "hidden_dropout": 0.0,
+  "hidden_size": 4096,
+  "kv_channels": 128,
+  "layernorm_epsilon": 1e-05,
+  "model_type": "chatglm",
+  "multi_query_attention": true,
+  "multi_query_group_num": 2,
+  "num_attention_heads": 32,
+  "num_layers": 28,
+  "original_rope": true,
+  "pad_token_id": 0,
+  "padded_vocab_size": 65024,
+  "post_layer_norm": true,
+  "pre_seq_len": null,
+  "prefix_projection": false,
+  "quantization_bit": 0,
+  "rmsnorm": true,
+  "seq_length": 32768,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.30.2",
+  "use_cache": true,
+  "vocab_size": 65024
+}
+
+{'loss': 3.2904, 'learning_rate': 6.000000000000001e-07, 'epoch': 0.41}                                                                                                          
+{'loss': 3.3181, 'learning_rate': 5.333333333333335e-07, 'epoch': 0.41}                                                                                                          
+{'loss': 3.2619, 'learning_rate': 4.666666666666667e-07, 'epoch': 0.41}                                                                                                          
+{'loss': 3.3124, 'learning_rate': 4.0000000000000003e-07, 'epoch': 0.41}                                                                                                         
+{'loss': 3.3397, 'learning_rate': 3.3333333333333335e-07, 'epoch': 0.41}                                                                                                         
+{'loss': 3.3603, 'learning_rate': 2.666666666666667e-07, 'epoch': 0.41}                                                                                                          
+{'loss': 3.2381, 'learning_rate': 2.0000000000000002e-07, 'epoch': 0.41}                                                                                                         
+{'loss': 3.3098, 'learning_rate': 1.3333333333333336e-07, 'epoch': 0.42}                                                                                                         
+{'loss': 3.2732, 'learning_rate': 6.666666666666668e-08, 'epoch': 0.42}                                                                                                          
+{'loss': 3.2385, 'learning_rate': 0.0, 'epoch': 0.42}                                                                                                                            
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3000/3000 [2:12:17<00:00,  2.62s/it][INFO|configuration_utils.py:667] 2024-10-19 20:40:35,714 >> loading configuration file /root/XXXjob/workspace/env_run/chatglm/10.25.73.162:8011/data1/models/chatglm2-6b/config.json
+[INFO|configuration_utils.py:725] 2024-10-19 20:40:35,714 >> Model config ChatGLMConfig {
+  "_name_or_path": "THUDM/chatglm2-6b",
+  "add_bias_linear": false,
+  "add_qkv_bias": true,
+  "apply_query_key_layer_scaling": true,
+  "apply_residual_connection_post_layernorm": false,
+  "architectures": [
+    "ChatGLMModel"
+  ],
+  "attention_dropout": 0.0,
+  "attention_softmax_in_fp32": true,
+  "auto_map": {
+    "AutoConfig": "configuration_chatglm.ChatGLMConfig",
+    "AutoModel": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForCausalLM": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForSeq2SeqLM": "modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForSequenceClassification": "modeling_chatglm.ChatGLMForSequenceClassification"
+  },
+  "bias_dropout_fusion": true,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "ffn_hidden_size": 13696,
+  "fp32_residual_connection": false,
+  "hidden_dropout": 0.0,
+  "hidden_size": 4096,
+  "kv_channels": 128,
+  "layernorm_epsilon": 1e-05,
+  "model_type": "chatglm",
+  "multi_query_attention": true,
+  "multi_query_group_num": 2,
+  "num_attention_heads": 32,
+  "num_layers": 28,
+  "original_rope": true,
+  "pad_token_id": 0,
+  "padded_vocab_size": 65024,
+  "post_layer_norm": true,
+  "pre_seq_len": null,
+  "prefix_projection": false,
+  "quantization_bit": 0,
+  "rmsnorm": true,
+  "seq_length": 32768,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.30.2",
+  "use_cache": true,
+  "vocab_size": 65024
+}
+
+[INFO|trainer.py:2053] 2024-10-19 20:40:35,861 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+{'train_runtime': 7937.2233, 'train_samples_per_second': 6.047, 'train_steps_per_second': 0.378, 'train_loss': 3.44393017578125, 'epoch': 0.42}                                  
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3000/3000 [2:12:17<00:00,  2.65s/it]
+***** train metrics *****
+  epoch                    =       0.42
+  train_loss               =     3.4439
+  train_runtime            = 2:12:17.22
+  train_samples            =     114599
+  train_samples_per_second =      6.047
+  train_steps_per_second   =      0.378
+```
+
