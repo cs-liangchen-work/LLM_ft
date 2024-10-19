@@ -381,6 +381,150 @@ print(response)
 ```
 
 
-## 2.2 微调代码
+## 2.2 代码简单解读
+
+### 2.2.1 读取命令行参数
+
+HfArgumentParser 是Hugging Face库为方便用于解析命令行参数而提供的工具
+ 
+```
+    parser = HfArgumentParser(
+        (ModelArguments, DataTrainingArguments, Seq2SeqTrainingArguments))
+    if len(sys.argv) == 2 and sys.argv[1].endswith(".json"):
+        # If we pass only one argument to the script and it's the path to a json file,
+        # let's parse it to get our arguments.
+        model_args, data_args, training_args = parser.parse_json_file(
+            json_file=os.path.abspath(sys.argv[1]))
+    else:
+        model_args, data_args, training_args = parser.parse_args_into_dataclasses()
+```
+
+比如继续解析数据集：
+
+```
+    data_files = {}
+    if data_args.train_file is not None:
+        data_files["train"] = data_args.train_file
+        extension = data_args.train_file.split(".")[-1]
+    if data_args.validation_file is not None:
+        data_files["validation"] = data_args.validation_file
+        extension = data_args.validation_file.split(".")[-1]
+    if data_args.test_file is not None:
+        data_files["test"] = data_args.test_file
+        extension = data_args.test_file.split(".")[-1]
+```
+
+比如继续解析模型：
+
+```
+    config = AutoConfig.from_pretrained(
+        model_args.model_name_or_path, trust_remote_code=True)
+    config.pre_seq_len = model_args.pre_seq_len
+    config.prefix_projection = model_args.prefix_projection
+
+    tokenizer = AutoTokenizer.from_pretrained(
+        model_args.model_name_or_path, trust_remote_code=True)
+```
+
+### 2.2.2 lora训练的核心代码
+
+```
+    elif model_args.lora_r is not None:
+        from peft import LoraConfig, get_peft_model
+        LORA_R = model_args.lora_r
+        LORA_ALPHA = 16
+        LORA_DROPOUT = 0.05
+        TARGET_MODULES = [
+            "query_key_value",
+        ]
+
+        config = LoraConfig(
+            r=LORA_R,
+            lora_alpha=LORA_ALPHA,
+            target_modules=TARGET_MODULES,
+            lora_dropout=LORA_DROPOUT,
+            bias="none",
+            task_type="CAUSAL_LM",
+        )
+        model = model.to(torch.bfloat16)
+        model = get_peft_model(model, config)
+        model.print_trainable_parameters()
+```
+
+### 2.2.3 处理数据格式：
+
+```
+def preprocess_function_eval()
+
+def preprocess_function_train()
+```
+
+### 2.2.4 训练数据处理，加载到train_dataset中。
+
+```
+    if training_args.do_train:
+        if "train" not in raw_datasets:
+            raise ValueError("--do_train requires a train dataset")
+        train_dataset = raw_datasets["train"]
+        if data_args.max_train_samples is not None:
+            max_train_samples = min(
+                len(train_dataset), data_args.max_train_samples)
+            train_dataset = train_dataset.select(range(max_train_samples))
+        with training_args.main_process_first(desc="train dataset map pre-processing"):
+            train_dataset = train_dataset.map(
+                preprocess_function_train,
+                batched=True,
+                num_proc=data_args.preprocessing_num_workers,
+                remove_columns=column_names,
+                load_from_cache_file=not data_args.overwrite_cache,
+                desc="Running tokenizer on train dataset",
+            )
+        print_dataset_example(train_dataset[0])
+```
+
+### 2.2.5 初始化训练器
+
+训练器详情见 train.py 和 train_seq2seq.py
+
+```
+    trainer = Seq2SeqTrainer(
+        model=model,
+        args=training_args,
+        train_dataset=train_dataset if training_args.do_train else None,
+        eval_dataset=eval_dataset if training_args.do_eval else None,
+        tokenizer=tokenizer,
+        data_collator=data_collator,
+        compute_metrics=compute_metrics if training_args.predict_with_generate else None,
+        save_changed=model_args.pre_seq_len is not None,
+        save_lora_model=True if model_args.lora_r is not None else False
+    )
+```
+
+### 2.2.6 训练
+
+```
+    # Training
+    if training_args.do_train:
+        checkpoint = None
+        if training_args.resume_from_checkpoint is not None:
+            checkpoint = training_args.resume_from_checkpoint
+        # elif last_checkpoint is not None:
+        #     checkpoint = last_checkpoint
+        model.gradient_checkpointing_enable()
+        model.enable_input_require_grads()
+        train_result = trainer.train(resume_from_checkpoint=checkpoint)
+        # trainer.save_model()  # Saves the tokenizer too for easy upload
+
+        metrics = train_result.metrics
+        max_train_samples = (
+            data_args.max_train_samples if data_args.max_train_samples is not None else len(
+                train_dataset)
+        )
+        metrics["train_samples"] = min(max_train_samples, len(train_dataset))
+
+        trainer.log_metrics("train", metrics)
+        trainer.save_metrics("train", metrics)
+        trainer.save_state()
+```
 
 
