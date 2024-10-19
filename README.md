@@ -534,3 +534,5 @@ def preprocess_function_train()
 
 https://github.com/THUDM/ChatGLM2-6B/blob/main/requirements.txt
 
+![](figure/chatglm_v2_lora_memset.png)
+
