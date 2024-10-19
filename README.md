@@ -232,7 +232,7 @@ lora代码：
 from peft import LoraConfig, get_peft_model
 config = LoraConfig(
     r=16,
-    lora_alpha=16,
+    lora_alpha=16, // 类似于学习率，
     target_modules=["query", "value"],
     lora_dropout=0.1,
     bias="none",
