@@ -1026,3 +1026,9 @@ Training completed. Do not forget to share your model on huggingface.co/models =
   train_steps_per_second   =      0.378
 ```
 
+## 2.4 训练的一些信息
+
+6B模型原始大小：12G
+
+保存大小：90M
+
