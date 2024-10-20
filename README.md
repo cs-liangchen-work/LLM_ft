@@ -714,3 +714,127 @@ print(response)
 
 
 ```
+
+合并模型
+
+https://github.com/yuanzhoulvpi2017/zero_nlp/blob/main/chatglm_v2_6b_lora/infer_lora.ipynb
+
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 原始部分"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from transformers import AutoTokenizer, AutoModel\n",
+    "from peft import PeftModel, PeftConfig\n",
+    "import torch\n",
+    "import os\n",
+    "os.environ['CUDA_VISIBLE_DEVICES'] = '1'\n",
+    "\n",
+    "\n",
+    "model_name_or_path = \"/media/yuanz/新加卷/训练代码/chatglm6b_v2_0716/chatglm2-6b_model\"\n",
+    "\n",
+    "\n",
+    "tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, trust_remote_code=True)\n",
+    "model = AutoModel.from_pretrained(model_name_or_path, trust_remote_code=True, device_map='auto', torch_dtype=torch.bfloat16)#.half().cuda()\n",
+    "\n",
+    "\n",
+    "model = model.eval()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "response, history = model.chat(tokenizer, \"你好\", history=[])\n",
+    "print(response)\n",
+    "response, history = model.chat(tokenizer, \"类型#上衣*材质#牛仔布*颜色#白色*风格#简约*图案#刺绣*衣样式#外套*衣款式#破洞\", history=[])\n",
+    "print(response)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 注意这里需要传递lora训练的路径"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "peft_model_id = \"output/adgen-chatglm2-6b-lora_version/checkpoint-880\"\n",
+    "model = PeftModel.from_pretrained(model, peft_model_id)\n",
+    "model = model.eval()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "response, history = model.chat(tokenizer, \"类型#上衣*材质#牛仔布*颜色#白色*风格#简约*图案#刺绣*衣样式#外套*衣款式#破洞\", history=[])\n",
+    "print(response)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "source": [
+    "## 合并模型\n",
+    "1. 很多人合并lora的需求，那么只需要这么做即可"
+   ],
+   "metadata": {
+    "collapsed": false
+   }
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "model_merge = model.merge_and_unload()\n",
+    "merger_lora_model_path = \"test_merge_dir\"\n",
+    "\n",
+    "model_merge.save_pretrained(merge_lora_model_path, max_shard_size=\"2GB\")\n",
+    "tokenizer.save_pretrained(merge_lora_model_path)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "mynet",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.12"
+  },
+  "orig_nbformat": 4
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
