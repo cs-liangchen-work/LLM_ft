@@ -681,5 +681,5 @@ model = model.eval()
 response, history = model.chat(tokenizer, "类型#上衣*材质#牛仔布*颜色#白色*风格#简约*图案#刺绣*衣样式#外套*衣款式#破洞", history=[])
 
 print(response)
-
+上衣款式 简约刺绣款式的牛仔布外套，颜色为白色，材质为牛仔布。这款外套在风格上表现为简约，图案为刺绣。
 ```
