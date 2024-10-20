@@ -683,3 +683,34 @@ response, history = model.chat(tokenizer, "类型#上衣*材质#牛仔布*颜色
 print(response)
 上衣款式 简约刺绣款式的牛仔布外套，颜色为白色，材质为牛仔布。这款外套在风格上表现为简约，图案为刺绣。
 ```
+
+retrain结果
+
+```
+from transformers import AutoTokenizer, AutoModel
+from peft import PeftModel, PeftConfig
+import torch
+import os
+
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+
+# 原始的模型路径
+model_name_or_path = ""
+
+# 训练后的lora保存的路径
+peft_model_id = ""
+
+tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, trust_remote_code=True)
+model = AutoModel.from_pretrained(model_name_or_path, trust_remote_code=True, device_map='auto',
+                                  torch_dtype=torch.bfloat16)  # .half().cuda()
+
+model = PeftModel.from_pretrained(model, peft_model_id)
+model = model.eval()
+
+response, history = model.chat(tokenizer, "类型#上衣*材质#牛仔布*颜色#白色*风格#简约*图案#刺绣*衣样式#外套*衣款式#破洞",
+                               history=[])
+print(response)
+这款外套在衣身上运用了刺绣的元素，让外套整体显得十分别致，同时在衣身上也添加了白色的刺绣元素，让外套整体显得十分简约大方。而在下身的破洞元素，则为外套增添了不少活力。
+
+
+```
