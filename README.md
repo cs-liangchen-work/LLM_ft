@@ -669,6 +669,8 @@ Training completed. Do not forget to share your model on huggingface.co/models =
 
 保存大小：90M
 
+【可以看看写的save代码】
+
 ## 2.5 测试
 
 原始结果
