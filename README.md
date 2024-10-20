@@ -669,3 +669,16 @@ Training completed. Do not forget to share your model on huggingface.co/models =
 
 保存大小：90M
 
+## 2.5 测试
+
+原始结果
+
+```
+from transformers import AutoTokenizer, AutoModel
+tokenizer = AutoTokenizer.from_pretrained("", trust_remote_code=True)
+model = AutoModel.from_pretrained("chatglm2-6b", trust_remote_code=True, device='cuda')
+model = model.eval()
+response, history = model.chat(tokenizer, "类型#上衣*材质#牛仔布*颜色#白色*风格#简约*图案#刺绣*衣样式#外套*衣款式#破洞", history=history)
+print(response)
+
+```
