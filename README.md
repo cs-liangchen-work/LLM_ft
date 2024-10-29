@@ -840,3 +840,38 @@ https://github.com/yuanzhoulvpi2017/zero_nlp/blob/main/chatglm_v2_6b_lora/infer_
  "nbformat": 4,
  "nbformat_minor": 2
 }
+
+# 3.全量微调？
+
+代码 以及 https://github.com/THUDM/ChatGLM3/blob/main/finetune_demo/finetune_hf.py  原始参考中都有这段：
+
+
+```
+    if peft_config is not None:
+        if peft_config.peft_type.name == "PREFIX_TUNING":
+            config = AutoConfig.from_pretrained(model_dir, trust_remote_code=True)
+            config.pre_seq_len = peft_config.num_virtual_tokens
+            config.use_cache = False
+            model = AutoModelForCausalLM.from_pretrained(
+                model_dir,
+                trust_remote_code=True,
+                config=config,
+            )
+        if peft_config.peft_type.name == "LORA":
+            model = AutoModelForCausalLM.from_pretrained(
+                model_dir,
+                trust_remote_code=True,
+                empty_init=False,
+                use_cache=False
+            )
+            model = get_peft_model(model, peft_config)
+            model.print_trainable_parameters()
+    else:
+        model = AutoModelForCausalLM.from_pretrained(
+            model_dir,
+            trust_remote_code=True,
+            empty_init=False,
+            use_cache=False
+        )
+    print_model_size(model)
+```
