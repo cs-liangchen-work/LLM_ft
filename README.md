@@ -841,6 +841,44 @@ https://github.com/yuanzhoulvpi2017/zero_nlp/blob/main/chatglm_v2_6b_lora/infer_
  "nbformat_minor": 2
 }
 
+
+
+**发现当lora改为多卡出现not same device问题**
+
+在【chatglm】的modeling_chatglm.py中修改
+
+```
+
+        loss = None
+        if labels is not None:
+            lm_logits = lm_logits.to(torch.float32)
+
+            # Shift so that tokens < n predict n
+            shift_logits = lm_logits[..., :-1, :].contiguous()
+            shift_labels = labels[..., 1:].contiguous().to(shift_logits.device) #<<<--------------------看这里
+            # Flatten the tokens
+            loss_fct = CrossEntropyLoss(ignore_index=-100)
+            loss = loss_fct(shift_logits.view(-1, shift_logits.size(-1)), shift_labels.view(-1))
+
+            lm_logits = lm_logits.to(hidden_states.dtype)
+            loss = loss.to(hidden_states.dtype)
+
+        if not return_dict:
+            output = (lm_logits,) + transformer_outputs[1:]
+            return ((loss,) + output) if loss is not None else output
+
+        return CausalLMOutputWithPast(
+            loss=loss,
+            logits=lm_logits,
+            past_key_values=transformer_outputs.past_key_values,
+            hidden_states=transformer_outputs.hidden_states,
+            attentions=transformer_outputs.attentions,
+        )
+        
+```
+
+
+
 # 3.全量微调？
 
 代码 以及 https://github.com/THUDM/ChatGLM3/blob/main/finetune_demo/finetune_hf.py  原始参考中都有这段：
