@@ -843,7 +843,7 @@ https://github.com/yuanzhoulvpi2017/zero_nlp/blob/main/chatglm_v2_6b_lora/infer_
 
 
 
-**发现当lora改为多卡出现not same device问题**
+## 2.6 **发现当lora改为多卡出现not same device问题**
 
 在【chatglm】的modeling_chatglm.py中修改
 
