@@ -935,3 +935,17 @@ https://github.com/yuanzhoulvpi2017/zero_nlp/blob/main/chatglm_v2_6b_lora/infer_
 36K     trainer_state.json
 8.0K    training_args.bin
 ```
+
+加载全量微调模型
+
+```
+from transformers import AutoTokenizer, AutoModel
+tokenizer = AutoTokenizer.from_pretrained("XXX/data1/models/chatglm2-6b", trust_remote_code=True)
+model = AutoModel.from_pretrained("checkpoint-3000/", trust_remote_code=True, device='cuda')
+model = model.eval()
+response, history = model.chat(tokenizer, "类型#上衣*材质#牛仔布*颜色#白色*风格#简约*图案#刺绣*衣样式#外套*衣款式#破洞", history=[])
+print(response)
+
+Loading checkpoint shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:28<00:00,  9.65s/it]
+牛仔外套是春季穿搭的必备单品，这款牛仔外套是白色的牛仔布料，简约的白色，让穿着者显得更加大方。衣身加入了刺绣的点缀，刺绣的图案精美又立体，让穿着者显得更加有气质。衣身还加入了破洞的点缀，破洞的点缀让穿着者显得更加有个性。
+```
