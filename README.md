@@ -883,6 +883,8 @@ https://github.com/yuanzhoulvpi2017/zero_nlp/blob/main/chatglm_v2_6b_lora/infer_
 
 代码 以及 https://github.com/THUDM/ChatGLM3/blob/main/finetune_demo/finetune_hf.py  原始参考中都有这段：
 
+也就是把train.sh中的lora的r设置去掉
+
 
 ```
     if peft_config is not None:
@@ -912,4 +914,24 @@ https://github.com/yuanzhoulvpi2017/zero_nlp/blob/main/chatglm_v2_6b_lora/infer_
             use_cache=False
         )
     print_model_size(model)
+```
+
+
+保存的模型信息
+
+```
+4.0K    config.json
+4.0K    generation_config.json
+47G     optimizer.pt
+9.2G    pytorch_model-00001-of-00003.bin
+9.2G    pytorch_model-00002-of-00003.bin
+5.1G    pytorch_model-00003-of-00003.bin
+20K     pytorch_model.bin.index.json
+16K     rng_state.pth
+4.0K    scheduler.pt
+4.0K    special_tokens_map.json
+4.0K    tokenizer_config.json
+996K    tokenizer.model
+36K     trainer_state.json
+8.0K    training_args.bin
 ```
